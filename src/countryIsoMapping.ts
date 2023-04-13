@@ -118,6 +118,7 @@ const countryIso2ToIso3Mapping = {
     KI: 'KIR',
     KP: 'PRK',
     KR: 'KOR',
+    XK: 'KSV',
     KW: 'KWT',
     KG: 'KGZ',
     LA: 'LAO',
@@ -245,8 +246,7 @@ const countryIso2ToIso3Mapping = {
     EH: 'ESH',
     YE: 'YEM',
     ZM: 'ZMB',
-    ZW: 'ZWE',
-    XK: 'XKX'
+    ZW: 'ZWE'
 };
 
 export function countryIso2ToIso3(countryCode): string {
@@ -379,6 +379,7 @@ const countryIso3ToIso2Mapping = {
     KIR: "KI",
     PRK: "KP",
     KOR: "KR",
+    KSV: "XK",
     KWT: "KW",
     KGZ: "KG",
     LAO: "LA",

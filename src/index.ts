@@ -14,11 +14,12 @@ function assertTiCiParams(params: TiCpiParams) {
         throw new Error("Only one of iso2CountryCode or iso3CountryCode can be provided");
     }
     if(params.iso2CountryCode) {
-        params.iso3CountryCode = countryIso2ToIso3(params.iso2CountryCode);
+        params.iso3CountryCode = countryIso2ToIso3(params.iso2CountryCode.toUpperCase());
         if(!params.iso3CountryCode) {
             throw new Error(`Could not find Transparency International Corruption Perception Index for country ${params.iso2CountryCode}`);
         }
     }
+    params.iso3CountryCode = params.iso3CountryCode.toUpperCase();
 }
 
 export function tiCpi(params: TiCpiParams): TiCpiCountryIndex {

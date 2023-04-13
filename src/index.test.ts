@@ -43,4 +43,14 @@ describe('Validate lookups throughout the Transparency International Corruption 
         expect(url).toBe("https://www.transparency.org/en/cpi/2022/table/aut");
     });
 
+    test('Kosovo should be found via ISO2 code in lower case', () => {
+        const index = tiCpi({iso2CountryCode: "xk"});
+        expect(index.country).toBe("Kosovo");
+    });
+
+    test('Kosovo should be found via ISO3 code', () => {
+        const index = tiCpi({iso3CountryCode: "ksv"});
+        expect(index.country).toBe("Kosovo");
+    });
+
 });
