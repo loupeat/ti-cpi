@@ -1,0 +1,17 @@
+{
+  "AUT": {
+    "country": "Austria",
+    "region": "WE/EU",
+    "iso2CountryCode": "AT",
+    "iso3CountryCode": "AUT",
+    "scores": {
+      "2022": {
+        "year": 2022,
+        "score": 71,
+        "rank": 22,
+        "sources": 8,
+        "standardError": 1.53
+      }
+    }
+  }
+}

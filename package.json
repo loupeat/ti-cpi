@@ -1,0 +1,17 @@
+{
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "country-iso-2-to-3": "^1.1.0",
+    "country-iso-3-to-2": "^1.1.1"
+  }
+}
