@@ -1,6 +1,6 @@
 /**
- * Converts the raw data from https://www.transparency.org/en/cpi/2022 to JSON.
- * The 2022 file can be found at: https://images.transparencycdn.org/images/CPI2022_GlobalResultsTrends.xlsx
+ * Converts the raw data from https://www.transparency.org/ to JSON.
+ * The converters input and output files are hard coded for each year's version.
  */
 import * as path from "path";
 import * as fs from "fs";
@@ -8,7 +8,7 @@ import {parse} from "csv-parse";
 import {TiCpiCountryIndex, TiCpiIndex} from "./domain";
 import {countryIso3ToIso2} from "./countryIsoMapping";
 
-const csvFilePath = path.resolve(__dirname, "../CPI2022_GlobalResultsTrends.csv");
+const csvFilePath = path.resolve(__dirname, "../CPI2023_GlobalResultsTrends.csv");
 const csvFileContent = fs.readFileSync(csvFilePath, {encoding: "utf-8"});
 parse(csvFileContent, {
     delimiter: ";",
@@ -18,7 +18,7 @@ parse(csvFileContent, {
         return;
     }
 
-    let skipLines = 3;
+    let skipLines = 4;
 
     const index: TiCpiIndex = {};
 
@@ -32,7 +32,7 @@ parse(csvFileContent, {
         const iso3CountryCode = row[1];
         const region = row[2];
 
-        let year = 2022;
+        let year = 2023;
         let currentColumn = 3;
 
         let currentCountry: TiCpiCountryIndex = {
@@ -67,7 +67,7 @@ parse(csvFileContent, {
         index[currentCountry.iso3CountryCode] = currentCountry;
     }
 
-    const jsonFilePath = path.resolve(__dirname, "../src/data2022.json");
+    const jsonFilePath = path.resolve(__dirname, "../src/data2023.json");
     fs.writeFileSync(jsonFilePath, JSON.stringify(index, null, 2), {encoding: "utf-8"});
 });
 

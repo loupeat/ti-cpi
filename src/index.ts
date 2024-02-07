@@ -1,5 +1,5 @@
 import {TiCpiCountryIndex, TiCpiIndex, TiCpiParams, TiCpiScore} from "./domain";
-import cpiIndexData from "./data2022.json";
+import cpiIndexData from "./data2023.json";
 import {countryIso2ToIso3} from "./countryIsoMapping";
 
 export function tiCpiIndex(): TiCpiIndex {
@@ -40,7 +40,7 @@ export function tiCpiForYear(params: TiCpiParams, year?: number): TiCpiScore {
     if(score) {
         return score;
     }
-    throw new Error(`Could not find Transparency International Corruption Perception Index for year ${year} in country ${index.country} (${index.iso2CountryCode}) data available from 2012 through 2022`);
+    throw new Error(`Could not find Transparency International Corruption Perception Index for year ${year} in country ${index.country} (${index.iso2CountryCode}) data available from 2012 through 2023`);
 }
 
 export function tiCpiUrl(params: TiCpiParams, year?: number): string {
