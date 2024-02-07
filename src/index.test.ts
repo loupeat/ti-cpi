@@ -27,7 +27,7 @@ describe('Validate lookups throughout the Transparency International Corruption 
     });
 
     test('If we do not provide a year for the tiCpiForYear lookup for Austria, we expect the year 2022', () => {
-        const score = tiCpiForYear({iso2CountryCode: "AT"});
+        const score = tiCpiForYear({iso2CountryCode: "AT"}, 2022);
         expect(score.year).toBe(2022);
         expect(score.score).toBe(71);
         expect(score.rank).toBe(22);
@@ -38,9 +38,9 @@ describe('Validate lookups throughout the Transparency International Corruption 
         expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2024)).toThrowError("Could not find Transparency International Corruption Perception Index for year 2024 in country Austria (AT) data available from 2012 through 2023");
     });
 
-    test('We should be able to get the URL for the 2022 CPI score for Austria', () => {
+    test('We should be able to get the URL for the 2023 CPI score for Austria', () => {
         const url = tiCpiUrl({iso2CountryCode: "AT"});
-        expect(url).toBe("https://www.transparency.org/en/cpi/2022/table/aut");
+        expect(url).toBe("https://www.transparency.org/en/cpi/2023/table/aut");
     });
 
     test('Kosovo should be found via ISO2 code in lower case', () => {
