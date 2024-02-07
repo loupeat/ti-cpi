@@ -34,7 +34,7 @@ export function tiCpi(params: TiCpiParams): TiCpiCountryIndex {
 export function tiCpiForYear(params: TiCpiParams, year?: number): TiCpiScore {
     const index = tiCpi(params);
     if(!year) {
-        year = 2022;
+        year = 2023;
     }
     const score = index.scores[year];
     if(score) {
