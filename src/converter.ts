@@ -7,8 +7,9 @@ import * as fs from "fs";
 import {parse} from "csv-parse";
 import {TiCpiCountryIndex, TiCpiIndex} from "./domain";
 import {countryIso3ToIso2} from "./countryIsoMapping";
+import {MOST_CURRENT_YEAR} from "./const";
 
-const csvFilePath = path.resolve(__dirname, "../CPI2023_GlobalResultsTrends.csv");
+const csvFilePath = path.resolve(__dirname, `../CPI${MOST_CURRENT_YEAR}_GlobalResultsTrends.csv`);
 const csvFileContent = fs.readFileSync(csvFilePath, {encoding: "utf-8"});
 parse(csvFileContent, {
     delimiter: ";",
@@ -18,7 +19,7 @@ parse(csvFileContent, {
         return;
     }
 
-    let skipLines = 4;
+    let skipLines = 3;
 
     const index: TiCpiIndex = {};
 
@@ -32,7 +33,7 @@ parse(csvFileContent, {
         const iso3CountryCode = row[1];
         const region = row[2];
 
-        let year = 2023;
+        let year = MOST_CURRENT_YEAR;
         let currentColumn = 3;
 
         let currentCountry: TiCpiCountryIndex = {
@@ -67,7 +68,7 @@ parse(csvFileContent, {
         index[currentCountry.iso3CountryCode] = currentCountry;
     }
 
-    const jsonFilePath = path.resolve(__dirname, "../src/data2023.json");
+    const jsonFilePath = path.resolve(__dirname, `../src/data${MOST_CURRENT_YEAR}.json`);
     fs.writeFileSync(jsonFilePath, JSON.stringify(index, null, 2), {encoding: "utf-8"});
 });
 

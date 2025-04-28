@@ -40,6 +40,22 @@ this library as soon as possible after receiving the update information.
 
 ## Developers
 
+### Updating
+
+To update the data do the following:
+
+ - Run `npm install` to install the required dependencies
+ - Change the const MOST_CURRENT_YEAR in `const.ts` the the year with the most recent data (the last year)
+ - Download the latest data from the Transparency International website (Excel format, Results and Trends)
+ - Export the Excel tab "Results and trends" to CSV
+ - Open CSV file and replace `,` with `;` (semicolon) in the whole file
+ - Move the CSV file to the root of this repository and rename it to `CPI<year>_GlobalResultsTrends.csv`
+ - Run `npm run convert` to convert the CSV file to JSON (this will create a new file `src/data<year>.json`)
+ - Ensure that the new files are added to GIT
+ - Run the tests and follow the instructions below to publish the new version
+
+### Building
+
 To build this library you can run:
 
 ```bash
@@ -50,6 +66,6 @@ A version published to NPM can be created by following the following checklist:
  - Bump the version in `package.json`
  - Run `npm run build` locally to verify the build is working
  - Run `npm run test` locally to verify none of the tests are failing
- - Commit and pus the changes to the main branch
+ - Commit and push the changes to the main branch
  - Create a new release on GitHub with the version number as the tag
  - The CI configuration in `.github/workflows/release.yml` will automatically publish the new version to NPM

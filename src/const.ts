@@ -1,0 +1,1 @@
+export const MOST_CURRENT_YEAR = 2024;

@@ -1,4 +1,5 @@
 import {tiCpi, tiCpiForYear, tiCpiUrl} from "./index";
+import {MOST_CURRENT_YEAR} from "./const";
 
 describe('Validate lookups throughout the Transparency International Corruption Perception Index', () => {
 
@@ -33,14 +34,14 @@ describe('Validate lookups throughout the Transparency International Corruption 
         expect(score.rank).toBe(22);
     });
 
-    test('The CPI started with 2012 and is available until 2023, so 2011 and 2024 should not provide a valid result', () => {
-        expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2011)).toThrowError("Could not find Transparency International Corruption Perception Index for year 2011 in country Austria (AT) data available from 2012 through 2023");
-        expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2024)).toThrowError("Could not find Transparency International Corruption Perception Index for year 2024 in country Austria (AT) data available from 2012 through 2023");
+    test(`The CPI started with 2012 and is available until ${MOST_CURRENT_YEAR}, so 2011 and 2025 should not provide a valid result`, () => {
+        expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2011)).toThrowError(`Could not find Transparency International Corruption Perception Index for year 2011 in country Austria (AT) data available from 2012 through ${MOST_CURRENT_YEAR}`);
+        expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2025)).toThrowError(`Could not find Transparency International Corruption Perception Index for year 2025 in country Austria (AT) data available from 2012 through ${MOST_CURRENT_YEAR}`);
     });
 
-    test('We should be able to get the URL for the 2023 CPI score for Austria', () => {
+    test(`We should be able to get the URL for the ${MOST_CURRENT_YEAR} CPI score for Austria`, () => {
         const url = tiCpiUrl({iso2CountryCode: "AT"});
-        expect(url).toBe("https://www.transparency.org/en/cpi/2023/table/aut");
+        expect(url).toBe(`https://www.transparency.org/en/cpi/${MOST_CURRENT_YEAR}/table/aut`);
     });
 
     test('Kosovo should be found via ISO2 code in lower case', () => {
