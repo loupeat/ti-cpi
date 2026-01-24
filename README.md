@@ -20,7 +20,6 @@ Then you can use it in your (TypeScript) code like this:
 
 ```typescript
 import {tiCpi, tiCpiForYear, tiCpiUrl} from "ti-cpi";
-import {testPathPatternToRegExp} from "jest-util";
 
 const iso2CountryCode = "AT";
 

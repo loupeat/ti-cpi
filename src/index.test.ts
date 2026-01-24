@@ -54,4 +54,35 @@ describe('Validate lookups throughout the Transparency International Corruption 
         expect(index.country).toBe("Kosovo");
     });
 
+    test('Should throw error if both ISO2 and ISO3 codes are provided', () => {
+        expect(() => tiCpi({iso2CountryCode: "AT", iso3CountryCode: "AUT"})).toThrowError("Only one of iso2CountryCode or iso3CountryCode can be provided");
+    });
+
+    test('Should throw error if neither ISO2 nor ISO3 code is provided', () => {
+        expect(() => tiCpi({})).toThrowError("Either iso2CountryCode or iso3CountryCode must be provided");
+    });
+
+    test('tiCpiForYear should use MOST_CURRENT_YEAR when year parameter is omitted', () => {
+        const score = tiCpiForYear({iso2CountryCode: "AT"});
+        expect(score.year).toBe(MOST_CURRENT_YEAR);
+    });
+
+    test('Country codes should be case insensitive for ISO2', () => {
+        const lowerCase = tiCpi({iso2CountryCode: "at"});
+        const upperCase = tiCpi({iso2CountryCode: "AT"});
+        const mixedCase = tiCpi({iso2CountryCode: "At"});
+        expect(lowerCase.country).toBe("Austria");
+        expect(upperCase.country).toBe("Austria");
+        expect(mixedCase.country).toBe("Austria");
+    });
+
+    test('Country codes should be case insensitive for ISO3', () => {
+        const lowerCase = tiCpi({iso3CountryCode: "aut"});
+        const upperCase = tiCpi({iso3CountryCode: "AUT"});
+        const mixedCase = tiCpi({iso3CountryCode: "AuT"});
+        expect(lowerCase.country).toBe("Austria");
+        expect(upperCase.country).toBe("Austria");
+        expect(mixedCase.country).toBe("Austria");
+    });
+
 });
