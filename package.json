@@ -4,12 +4,12 @@
   "description": "This library wraps up the data collected by Transparency International in their Corruption Perception Index",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steima/ti-cpi.git"
+    "url": "git+https://github.com/loupeat/ti-cpi.git"
   },
   "author": "Matthias Steinbauer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steima/ti-cpi/issues"
+    "url": "https://github.com/loupeat/ti-cpi/issues"
   },
   "homepage": "https://loupe.at/",
   "main": "dist/index.js",
