@@ -11,6 +11,11 @@ provides a simple interface to the data. The original data is licensed under the
 license. The data converted from Excel to CSV is hosted in this repository in the
 [docs/ti](docs/ti) directory and is licensed under the same license. The code itself is licensed under the [MIT License](LICENSE).
 
+[![npm version](https://img.shields.io/npm/v/ti-cpi)](https://www.npmjs.com/package/ti-cpi)
+[![license](https://img.shields.io/npm/l/ti-cpi)](LICENSE)
+[![CI](https://github.com/loupeat/ti-cpi/actions/workflows/test.yml/badge.svg)](https://github.com/loupeat/ti-cpi/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/loupeat/ti-cpi/branch/main/graph/badge.svg)](https://codecov.io/gh/loupeat/ti-cpi)
+
 ## How to use
 
 You can install this library using NPM:
