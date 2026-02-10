@@ -9,7 +9,7 @@ import {TiCpiCountryIndex, TiCpiIndex} from "./domain";
 import {countryIso3ToIso2} from "./countryIsoMapping";
 import {MOST_CURRENT_YEAR} from "./const";
 
-const csvFilePath = path.resolve(__dirname, `../CPI${MOST_CURRENT_YEAR}_GlobalResultsTrends.csv`);
+const csvFilePath = path.resolve(__dirname, `../docs/ti/CPI${MOST_CURRENT_YEAR}_GlobalResultsTrends.csv`);
 const csvFileContent = fs.readFileSync(csvFilePath, {encoding: "utf-8"});
 parse(csvFileContent, {
     delimiter: ";",
@@ -69,6 +69,6 @@ parse(csvFileContent, {
     }
 
     const jsonFilePath = path.resolve(__dirname, `../src/data${MOST_CURRENT_YEAR}.json`);
-    fs.writeFileSync(jsonFilePath, JSON.stringify(index, null, 2), {encoding: "utf-8"});
+    fs.writeFileSync(jsonFilePath, JSON.stringify(index), {encoding: "utf-8"});
 });
 

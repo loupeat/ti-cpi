@@ -1,12 +1,15 @@
 # Transparency International - Corruption Perception Index
 
+> **From the makers of [.LOUPE](https://loupe.at)** — the compliance workspace.
+> Need to screen your business partners against corruption risk?
+> Check out our [Business Partner Compliance](https://loupe.at/solutions/business-partner-compliance/) tool.
+
 This small library wraps up the data collected by Transparency International in their Corruption Perception Index. The
-data is available in CSV/Excel format on their [website](https://www.transparency.org/en/cpi/2022). This library
+data is available in CSV/Excel format on their [website](https://www.transparency.org/en/cpi/2025). This library
 provides a simple interface to the data. The original data is licensed under the
 [Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/)
-license. The data converted from Excel to CSV is hosted in this directory in the file
-[CPI2023_GlobalResultsTrends.csv](CPI2023_GlobalResultsTrends.csv)
-and is licensed under the same license. The code itself is licensed under the [MIT License](LICENSE).
+license. The data converted from Excel to CSV is hosted in this repository in the
+[docs/ti](docs/ti) directory and is licensed under the same license. The code itself is licensed under the [MIT License](LICENSE).
 
 ## How to use
 
