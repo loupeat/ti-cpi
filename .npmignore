@@ -106,6 +106,6 @@ dist
 .idea
 .github
 src
-CPI2022_GlobalResultsTrends.csv
+docs/
 jest.config.js
 tsconfig.json

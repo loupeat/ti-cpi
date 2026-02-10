@@ -1,5 +1,5 @@
 import {TiCpiCountryIndex, TiCpiIndex, TiCpiParams, TiCpiScore} from "./domain";
-import cpiIndexData from "./data2024.json";
+import cpiIndexData from "./data2025.json";
 import {countryIso2ToIso3} from "./countryIsoMapping";
 import {MOST_CURRENT_YEAR} from "./const";
 

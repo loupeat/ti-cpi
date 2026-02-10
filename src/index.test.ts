@@ -34,9 +34,9 @@ describe('Validate lookups throughout the Transparency International Corruption 
         expect(score.rank).toBe(22);
     });
 
-    test(`The CPI started with 2012 and is available until ${MOST_CURRENT_YEAR}, so 2011 and 2025 should not provide a valid result`, () => {
+    test(`The CPI started with 2012 and is available until ${MOST_CURRENT_YEAR}, so 2011 and ${MOST_CURRENT_YEAR + 1} should not provide a valid result`, () => {
         expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2011)).toThrowError(`Could not find Transparency International Corruption Perception Index for year 2011 in country Austria (AT) data available from 2012 through ${MOST_CURRENT_YEAR}`);
-        expect(() => tiCpiForYear({iso2CountryCode: "AT"}, 2025)).toThrowError(`Could not find Transparency International Corruption Perception Index for year 2025 in country Austria (AT) data available from 2012 through ${MOST_CURRENT_YEAR}`);
+        expect(() => tiCpiForYear({iso2CountryCode: "AT"}, MOST_CURRENT_YEAR + 1)).toThrowError(`Could not find Transparency International Corruption Perception Index for year ${MOST_CURRENT_YEAR + 1} in country Austria (AT) data available from 2012 through ${MOST_CURRENT_YEAR}`);
     });
 
     test(`We should be able to get the URL for the ${MOST_CURRENT_YEAR} CPI score for Austria`, () => {
